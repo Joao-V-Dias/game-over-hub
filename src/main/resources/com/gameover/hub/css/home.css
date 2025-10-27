@@ -1,0 +1,30 @@
+#header{
+    -fx-background-color: #25272D;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-display: flex;
+    -fx-alignment: center;
+    -fx-justify-content: center;
+
+}
+
+#header .button{
+    -fx-background-color: #30333B;
+    -fx-text-fill: #EDEAE1;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+#header .button:hover{
+    -fx-background-color: #424650;
+}
+
+#header .button:focused{
+    -fx-background-color: #0078D7;
+}
+
+#telaContainer{
+    -fx-background-color: #30333B;
+}

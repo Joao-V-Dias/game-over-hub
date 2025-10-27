@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="487.0" prefWidth="860.0" stylesheets="@../css/home.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.HomeController">
+   <children>
+      <HBox id="header" prefHeight="54.0" prefWidth="860.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnAtendimento" mnemonicParsing="false" onAction="#abrirTelaAtendimento" prefHeight="25.0" prefWidth="105.0" text="Atendimento" />
+            <Button fx:id="btnEstoque" mnemonicParsing="false" onAction="#abrirTelaEstoque" prefHeight="25.0" prefWidth="105.0" text="Estoque" />
+            <Button fx:id="btnTecnico" mnemonicParsing="false" onAction="#abrirTelaTecnico" prefHeight="25.0" prefWidth="105.0" text="Técnico" />
+            <Button fx:id="btnFinanceiro" mnemonicParsing="false" onAction="#abrirTelaFinanceiro" prefHeight="25.0" prefWidth="105.0" text="Financeiro" />
+         </children>
+      </HBox>
+      <AnchorPane fx:id="telaContainer" layoutY="50.0" prefHeight="437.0" prefWidth="860.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+   </children>
+</AnchorPane>

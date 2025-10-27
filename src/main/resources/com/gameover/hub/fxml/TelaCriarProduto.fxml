@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox id="tela-produto" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="529.0" stylesheets="@../css/produto.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.CriarProdutoController">
+   <children>
+      <Label id="title-produto" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="Tela de Produto" />
+      <Label prefHeight="17.0" prefWidth="544.0" styleClass="label-produto" text="Nome" />
+      <TextField fx:id="txtNome" prefHeight="25.0" prefWidth="391.0" styleClass="input-produto" />
+      <Label prefHeight="17.0" prefWidth="532.0" styleClass="label-produto" text="Preço" />
+      <TextField fx:id="txtPreco" styleClass="input-produto" />
+      <Label prefHeight="17.0" prefWidth="771.0" styleClass="label-produto" text="Categoria" />
+      <TextField fx:id="txtCategoria" styleClass="input-produto" />
+      <HBox alignment="BOTTOM_CENTER" prefHeight="52.0" prefWidth="388.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label styleClass="label-produto" text="Qtd Estoque" />
+                  <TextField fx:id="txtQuantidade" prefHeight="25.0" prefWidth="100.0" styleClass="input-produto" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="169.0" styleClass="label-produto" text="Estoque mínimo" />
+                  <TextField fx:id="txtEstoqueMinimo" prefHeight="25.0" prefWidth="57.0" styleClass="input-produto" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label prefHeight="17.0" prefWidth="552.0" styleClass="label-produto" text="Código GTIN" />
+      <TextField fx:id="txtGTIN" prefHeight="25.0" prefWidth="325.0" styleClass="input-produto" />
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="429.0">
+         <children>
+            <Button id="btn-salvar" fx:id="btnSalvar" mnemonicParsing="false" onAction="#salvarProduto" prefHeight="25.0" prefWidth="146.0" text="Salvar" />
+            <Button id="btn-cancelar" fx:id="btnCancelar" mnemonicParsing="false" onAction="#closeWindow" prefHeight="47.0" prefWidth="154.0" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="50.0" right="50.0" />
+   </padding>
+</VBox>

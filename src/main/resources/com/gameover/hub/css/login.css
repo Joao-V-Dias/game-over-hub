@@ -1,0 +1,57 @@
+#login{
+    -fx-background-color: #30333B;
+}
+
+#logo-container{
+    -fx-background-color: #25272D;
+}
+
+.input-login{
+    -fx-background-color: #30333B;
+    -fx-text-fill: #EDEAE1;
+    -fx-highlight-fill: #EDEAE1;
+    -fx-highlight-text-fill: #000000;
+    -fx-prompt-text-fill: #EDEAE1;
+    -fx-border-color: #424650;
+    -fx-border-radius: 5px;
+}
+
+.input-login:focused{
+    -fx-border-color: #0078D7;
+    -fx-border-width: 1.5px;
+    -fx-background-color: #30333B;
+}
+
+#btn-login{
+    -fx-background-color: #0078D7;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 5px;
+}
+
+#btn-login:hover{
+    -fx-background-color: #0063AD;
+}
+
+#version{
+    -fx-font-size: 11px;
+}
+
+#title-login{
+    -fx-font-weight: bold;
+}
+
+#label-login{
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-margin-bottom: 4px;
+}
+
+#close-window{
+    -fx-background-color: transparent;
+    -fx-text-fill: #EDEAE1;
+    -fx-font-weight: bold;
+}
+
+#close-window:hover{
+    -fx-background-color: #FF0000;
+}

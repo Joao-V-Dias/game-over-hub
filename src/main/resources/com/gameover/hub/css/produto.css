@@ -1,0 +1,48 @@
+#tela-produto {
+    -fx-background-color: #30333B;
+    -fx-padding: 20px;
+}
+
+#title-produto {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding-bottom: 20px;
+}
+
+.label-produto {
+    -fx-font-size: 14px;
+    -fx-text-fill: #DDDDDD;
+    -fx-padding: 10px 0 5px 0;
+}
+
+.input-produto {
+    -fx-pref-height: 35px;
+    -fx-font-size: 13px;
+    -fx-background-color: #424650;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #25272D;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-prompt-text-fill: #AAAAAA;
+    -fx-padding: 5px;
+}
+
+.input-produto:focused {
+    -fx-border-color: #0078D7;
+    -fx-background-color: #454953;
+}
+
+#btn-salvar {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+#btn-salvar:hover {
+    -fx-background-color: #005A9E;
+}
