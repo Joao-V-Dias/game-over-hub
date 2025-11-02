@@ -1,14 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.gameover.hub.view.AtendimentoController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/atendimento.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.AtendimentoController">
+   <children>
+      <Label layoutX="320.0" layoutY="28.0" text="Tela de Atendimento">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnComprar" layoutX="200.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleComprar" prefWidth="150.0" text="Comprar Produto" />
+      <Button fx:id="btnServico" layoutX="450.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleServico" prefWidth="150.0" text="Abrir Ordem de Serviço" />
 
+      <!-- Modal de Compra -->
+      <AnchorPane fx:id="modalCompra" layoutX="50.0" layoutY="150.0" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #cccccc;" visible="true">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Registrar Venda">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            
+            <Label layoutX="14.0" layoutY="50.0" text="Nome do Cliente:" />
+            <TextField fx:id="txtNomeCliente" layoutX="120.0" layoutY="46.0" prefWidth="250.0" />
+
+            <Label layoutX="14.0" layoutY="80.0" text="Produtos:" />
+            <TableView fx:id="tabelaProdutos" layoutX="14.0" layoutY="100.0" prefHeight="120.0" prefWidth="670.0">
+              <columns>
+                <TableColumn prefWidth="300.0" text="Produto" />
+                <TableColumn prefWidth="90.0" text="Quantidade" />
+                <TableColumn prefWidth="140.0" text="Valor Unitário (R$)" />
+                <TableColumn prefWidth="140.0" text="Subtotal (R$)" />
+              </columns>
+            </TableView>
+
+            <Label layoutX="14.0" layoutY="230.0" text="Equipamentos para Troca (Trade-in):" />
+            <TableView fx:id="tabelaTrocas" layoutX="14.0" layoutY="250.0" prefHeight="100.0" prefWidth="670.0">
+              <columns>
+                <TableColumn prefWidth="350.0" text="Equipamento" />
+                <TableColumn prefWidth="180.0" text="Modelo" />
+                <TableColumn prefWidth="140.0" text="Crédito (R$)" />
+              </columns>
+            </TableView>
+
+            <Label layoutX="14.0" layoutY="364.0" text="Garantia:" />
+            <ComboBox fx:id="comboGarantia" layoutX="80.0" layoutY="360.0" prefWidth="150.0" />
+
+            <Label fx:id="lblTotal" layoutX="450.0" layoutY="390.0" text="Total: R$ 0,00">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="560.0" layoutY="386.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Finalizar Compra" />
+
+         </children>
+      </AnchorPane>
+
+      <!-- Modal de Ordem de Serviço -->
+      <AnchorPane fx:id="modalServico" layoutX="50.0" layoutY="150.0" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #cccccc;" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Ordem de Serviço">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <!-- Adicione aqui os campos para a O.S. -->
+         </children>
+      </AnchorPane>
+
+   </children>
 </AnchorPane>
