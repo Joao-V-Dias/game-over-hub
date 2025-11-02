@@ -59,13 +59,7 @@ public class EstoqueController {
     @FXML
     void criarProduto() {
 		try{
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/gameover/hub/fxml/TelaCriarProduto.fxml"));
-			Parent root = loader.load();
-
-			Stage stage = new Stage();
-			stage.setScene(new javafx.scene.Scene(root));
-			stage.initStyle(StageStyle.UNDECORATED);
-			stage.show();
+			abrirTelaCriarProduto(null);
 		}catch(IOException e){
 			log.error("Falha ao abrir tela de criar produto: ", e);
 		}
@@ -77,23 +71,26 @@ public class EstoqueController {
             Produto produtoSelecionado = tabela.getSelectionModel().getSelectedItem();
             if (produtoSelecionado != null) {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/gameover/hub/fxml/TelaCriarProduto.fxml"));
-                    Parent root = loader.load();
-
-                    CriarProdutoController controller = loader.getController();
-                    controller.setProdutoParaEdicao(produtoSelecionado);
-
-                    Stage stage = new Stage();
-                    stage.setScene(new javafx.scene.Scene(root));
-                    stage.initStyle(StageStyle.UNDECORATED);
-                    stage.show();
-
-                    stage.setOnHidden(e -> atualizarTabela());
+                    abrirTelaCriarProduto(produtoSelecionado);
                 } catch (IOException e) {
                     log.error("Falha ao abrir tela de edição de produto: ", e);
                 }
             }
         }
-
     }
+
+	void abrirTelaCriarProduto(Produto produtoSelecionado) throws IOException{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/gameover/hub/fxml/TelaCriarProduto.fxml"));
+        Parent root = loader.load();
+
+		if(produtoSelecionado != null){
+			CriarProdutoController controller = loader.getController();
+			controller.setProdutoParaEdicao(produtoSelecionado);
+		}
+
+		Stage stage = new Stage();
+		stage.setScene(new javafx.scene.Scene(root));
+		stage.initStyle(StageStyle.UNDECORATED);
+		stage.show();
+	}
 }

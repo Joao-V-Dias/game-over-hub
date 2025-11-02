@@ -101,7 +101,7 @@ public class ProdutoDAO{
         try {
             PreparedStatement stmt = conn.prepareStatement(EDITAR_PRODUTO);
 			stmt.setString(1, p.getNome());
-			stmt.setBigDecimal(2, p.getPreco()); // BigDecimal
+			stmt.setBigDecimal(2, p.getPreco());
 			stmt.setString(3, p.getCategoria());
 			stmt.setInt(4, p.getQuantidade());
 			stmt.setInt(5, p.getEstoqueMinimo());
@@ -120,7 +120,7 @@ public class ProdutoDAO{
         Produto p = new Produto();
         p.setId(rs.getInt("id"));
 		p.setNome(rs.getString("nome"));
-		p.setPreco(rs.getBigDecimal("preco")); // 👈 BigDecimal aqui também
+		p.setPreco(rs.getBigDecimal("preco"));
 		p.setCategoria(rs.getString("categoria"));
 		p.setQuantidade(rs.getInt("quantidade"));
 		p.setEstoqueMinimo(rs.getInt("estoque_minimo"));

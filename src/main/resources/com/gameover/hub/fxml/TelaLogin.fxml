@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.LoginController">
+<AnchorPane id="login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="565.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.LoginController">
    <children>
-      <AnchorPane id="logo-container" prefHeight="297.0" prefWidth="257.0">
+      <AnchorPane id="logo-container" prefHeight="297.0" prefWidth="257.0" stylesheets="@../css/login.css">
          <children>
             <ImageView fitHeight="190.0" fitWidth="202.0" layoutX="43.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>

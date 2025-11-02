@@ -28,4 +28,18 @@ public class Produto{
 		this.preco = preco;
 		this.nome = nome;
 	}
+
+	@Override
+	public String toString(){
+		return "Produto{" +
+				"id=" + id +
+				", nome='" + nome + '\'' +
+				", preco=" + preco +
+				", categoria='" + categoria + '\'' +
+				", quantidade=" + quantidade +
+				", gtin='" + gtin + '\'' +
+				", estoqueMinimo=" + estoqueMinimo +
+				'}';
+
+	}
 }

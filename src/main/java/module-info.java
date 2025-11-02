@@ -16,5 +16,6 @@ module com.gameover.hub {
 	opens com.gameover.hub.model to javafx.base;
 	exports com.gameover.hub;
 	exports com.gameover.hub.view;
+	exports com.gameover.hub.model;
 	opens com.gameover.hub.view to javafx.fxml;
 }

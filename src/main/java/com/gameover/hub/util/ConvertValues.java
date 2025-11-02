@@ -9,19 +9,20 @@ public class ConvertValues{
 
     public static BigDecimal convertBigDecimal(String value){
         try{
+			value = value.replace(",", ".");
             return new BigDecimal(value);
         }catch (Exception e){
-            log.error("Erro ao converter valor: " + value + " para BigDecimal", e);
+			log.error("Erro ao converter valor: {} para BigDecimal", value, e);
             return null;
         }
     }
 
-    public static Integer convertInteger(String value){
+    public static int convertInt(String value){
         try{
             return Integer.parseInt(value);
         }catch (Exception e){
-            log.error("Erro ao converter valor: " + value + " para Integer", e);
-            return null;
+            log.error("Erro ao converter valor: {} para int", value, e);
+            return 0;
         }
     }
 

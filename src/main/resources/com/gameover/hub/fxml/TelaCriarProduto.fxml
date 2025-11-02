@@ -9,7 +9,7 @@
 
 <VBox id="tela-produto" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="529.0" stylesheets="@../css/produto.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.CriarProdutoController">
    <children>
-      <Label id="title-produto" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="Tela de Produto" />
+      <Label id="title-produto" fx:id="title" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="213.0" text="Salvar Produto" />
       <Label prefHeight="17.0" prefWidth="544.0" styleClass="label-produto" text="Nome" />
       <TextField fx:id="txtNome" prefHeight="25.0" prefWidth="391.0" styleClass="input-produto" />
       <Label prefHeight="17.0" prefWidth="532.0" styleClass="label-produto" text="Preço" />

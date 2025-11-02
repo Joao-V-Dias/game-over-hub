@@ -12,14 +12,12 @@ import javafx.scene.layout.AnchorPane;
 
 public class AtendimentoController {
 
-    // --- Componentes Gerais ---
     @FXML
     private AnchorPane modalCompra;
 
     @FXML
     private AnchorPane modalServico;
 
-    // --- Modal de Compra ---
     @FXML
     private TextField txtNomeCliente;
 
@@ -35,7 +33,6 @@ public class AtendimentoController {
     @FXML
     private Label lblTotal;
 
-    // --- Modal de Ordem de Serviço ---
     @FXML
     private TextField txtCpfCliente;
 
@@ -48,9 +45,8 @@ public class AtendimentoController {
 
     @FXML
     public void initialize() {
-        // Preenche a ComboBox de garantia com opções
-        comboGarantia.setItems(FXCollections.observableArrayList("Nenhuma", "90 dias", "1 ano"));
-        comboGarantia.setValue("Nenhuma"); // Define um valor padrão
+        comboGarantia.setItems(FXCollections.observableArrayList("Nenhuma", "30 dias", "90 dias", "1 ano"));
+        comboGarantia.setValue("Nenhuma");
     }
 
     @FXML

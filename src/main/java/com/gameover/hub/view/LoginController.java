@@ -43,18 +43,15 @@ public class LoginController {
 				try{
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/gameover/hub/fxml/TelaHome.fxml"));
 					Parent root = loader.load();
-
 					Stage stage = new Stage();
 					stage.setScene(new javafx.scene.Scene(root));
 					stage.show();
 
 					closeWindow(event);
-
 				}catch(IOException e){
 					log.error("Falha ao abrir tela principal: ", e);
 				}
 			} else {
-				//Adicionar na tela tambem a mensagem de erro
 				log.error(lr.getMensagem());
 			}
 		}
