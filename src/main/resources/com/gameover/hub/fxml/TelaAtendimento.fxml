@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -7,32 +9,26 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/atendimento.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.AtendimentoController">
+<AnchorPane prefHeight="701.0" prefWidth="1186.0" styleClass="atendimento-background" stylesheets="@../css/atendimento.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.AtendimentoController">
    <children>
-      <Label layoutX="320.0" layoutY="28.0" text="Tela de Atendimento">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnComprar" layoutX="200.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleComprar" prefWidth="150.0" text="Comprar Produto" />
-      <Button fx:id="btnServico" layoutX="450.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleServico" prefWidth="150.0" text="Abrir Ordem de Serviço" />
 
       <!-- Modal de Compra -->
-      <AnchorPane fx:id="modalCompra" layoutX="50.0" layoutY="150.0" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #cccccc;" visible="true">
+      <AnchorPane fx:id="modalCompra" layoutX="235.0" layoutY="109.0" prefHeight="511.0" prefWidth="1162.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="77.0">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" text="Registrar Venda">
+            <Label graphicTextGap="50.0" layoutX="14.0" layoutY="14.0" styleClass="title-modal" text="Registrar Venda" AnchorPane.leftAnchor="14.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             
-            <Label layoutX="14.0" layoutY="50.0" text="Nome do Cliente:" />
-            <TextField fx:id="txtNomeCliente" layoutX="120.0" layoutY="46.0" prefWidth="250.0" />
+            <Label layoutX="14.0" layoutY="50.0" styleClass="label-modal" text="Nome do Cliente:" AnchorPane.leftAnchor="14.0" />
+            <TextField fx:id="txtNomeCliente" layoutX="137.0" layoutY="48.0" prefHeight="25.0" prefWidth="434.0" styleClass="input" />
 
-            <Label layoutX="14.0" layoutY="80.0" text="Produtos:" />
-            <TableView fx:id="tabelaProdutos" layoutX="14.0" layoutY="100.0" prefHeight="120.0" prefWidth="670.0">
+            <Label layoutX="14.0" layoutY="80.0" styleClass="label-modal" text="Produtos:" AnchorPane.leftAnchor="14.0" />
+            <TableView fx:id="tabelaProdutos" layoutX="16.0" layoutY="105.0" prefHeight="193.0" prefWidth="1129.0" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="104.0">
               <columns>
                 <TableColumn prefWidth="300.0" text="Produto" />
                 <TableColumn prefWidth="90.0" text="Quantidade" />
@@ -41,8 +37,8 @@
               </columns>
             </TableView>
 
-            <Label layoutX="14.0" layoutY="230.0" text="Equipamentos para Troca (Trade-in):" />
-            <TableView fx:id="tabelaTrocas" layoutX="14.0" layoutY="250.0" prefHeight="100.0" prefWidth="670.0">
+            <Label layoutX="15.0" layoutY="306.0" styleClass="label-modal" text="Equipamentos para Troca (Trade-in):" AnchorPane.bottomAnchor="289.0" AnchorPane.leftAnchor="14.0" />
+            <TableView fx:id="tabelaTrocas" layoutX="19.0" layoutY="326.0" prefHeight="185.0" prefWidth="1127.0" AnchorPane.bottomAnchor="103.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
               <columns>
                 <TableColumn prefWidth="350.0" text="Equipamento" />
                 <TableColumn prefWidth="180.0" text="Modelo" />
@@ -50,15 +46,18 @@
               </columns>
             </TableView>
 
-            <Label layoutX="14.0" layoutY="364.0" text="Garantia:" />
-            <ComboBox fx:id="comboGarantia" layoutX="80.0" layoutY="360.0" prefWidth="150.0" />
+            <Label layoutX="16.0" layoutY="530.0" styleClass="label-modal" text="Garantia:" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="14.0" />
+            <ComboBox fx:id="comboGarantia" layoutX="74.0" layoutY="526.0" prefWidth="150.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="74.0" />
 
-            <Label fx:id="lblTotal" layoutX="450.0" layoutY="390.0" text="Total: R$ 0,00">
+            <Label fx:id="lblTotal" layoutX="450.0" layoutY="390.0" styleClass="sum" text="Total: R$ 0,00" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="14.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="560.0" layoutY="386.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Finalizar Compra" />
+            <Button layoutX="560.0" layoutY="386.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="270.0" styleClass="btn-finaliza" text="Finalizar Compra" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="14.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
 
          </children>
       </AnchorPane>
@@ -74,6 +73,23 @@
             <!-- Adicione aqui os campos para a O.S. -->
          </children>
       </AnchorPane>
+      <HBox alignment="CENTER" prefHeight="64.0" prefWidth="822.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnComprar" mnemonicParsing="false" onAction="#handleComprar" prefHeight="33.0" prefWidth="593.0" styleClass="btn-topo" text="Comprar Produto">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnServico" mnemonicParsing="false" onAction="#handleServico" prefHeight="0.0" prefWidth="597.0" styleClass="btn-topo" text="Abrir Ordem de Serviço">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
 
    </children>
 </AnchorPane>

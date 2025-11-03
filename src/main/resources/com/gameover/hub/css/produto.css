@@ -46,3 +46,25 @@
 #btn-salvar:hover {
     -fx-background-color: #005A9E;
 }
+
+#btn-cancelar {
+    -fx-background-color: #6C757D;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+#btn-cancelar:hover {
+    -fx-background-color: #5A6268;
+}
+
+.g-btn{
+    -fx-display: flex;
+    -fx-alignment: center;
+    -fx-justify-content: center;
+    -fx-spacing: 10px;
+
+}

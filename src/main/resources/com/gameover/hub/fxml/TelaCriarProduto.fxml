@@ -16,28 +16,28 @@
       <TextField fx:id="txtPreco" styleClass="input-produto" />
       <Label prefHeight="17.0" prefWidth="771.0" styleClass="label-produto" text="Categoria" />
       <TextField fx:id="txtCategoria" styleClass="input-produto" />
-      <HBox alignment="BOTTOM_CENTER" prefHeight="52.0" prefWidth="388.0">
+      <HBox alignment="BOTTOM_CENTER" prefHeight="52.0" prefWidth="388.0" styleClass="g-btn">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="66.0" prefWidth="330.0">
                <children>
                   <Label styleClass="label-produto" text="Qtd Estoque" />
                   <TextField fx:id="txtQuantidade" prefHeight="25.0" prefWidth="100.0" styleClass="input-produto" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="66.0" prefWidth="338.0">
                <children>
-                  <Label prefHeight="35.0" prefWidth="169.0" styleClass="label-produto" text="Estoque mínimo" />
-                  <TextField fx:id="txtEstoqueMinimo" prefHeight="25.0" prefWidth="57.0" styleClass="input-produto" />
+                  <Label prefHeight="35.0" prefWidth="111.0" styleClass="label-produto" text="Estoque mínimo" />
+                  <TextField fx:id="txtEstoqueMinimo" prefHeight="31.0" prefWidth="251.0" styleClass="input-produto" />
                </children>
             </VBox>
          </children>
       </HBox>
       <Label prefHeight="17.0" prefWidth="552.0" styleClass="label-produto" text="Código GTIN" />
       <TextField fx:id="txtGTIN" prefHeight="25.0" prefWidth="325.0" styleClass="input-produto" />
-      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="429.0">
+      <HBox alignment="CENTER" prefHeight="73.0" prefWidth="489.0" styleClass="g-btn">
          <children>
             <Button id="btn-salvar" fx:id="btnSalvar" mnemonicParsing="false" onAction="#salvarProduto" prefHeight="25.0" prefWidth="146.0" text="Salvar" />
-            <Button id="btn-cancelar" fx:id="btnCancelar" mnemonicParsing="false" onAction="#closeWindow" prefHeight="47.0" prefWidth="154.0" text="Cancelar" />
+            <Button id="btn-cancelar" fx:id="btnCancelar" mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="154.0" text="Cancelar" />
          </children>
       </HBox>
    </children>

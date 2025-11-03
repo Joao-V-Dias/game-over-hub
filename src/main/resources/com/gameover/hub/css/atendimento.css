@@ -1,1 +1,59 @@
-/* Estilos para a tela de atendimento */
+.input-field {
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #aaaaaa;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5;
+    -fx-padding: 8px;
+}
+
+.input-field:focused {
+    -fx-border-color: #007bff;
+}
+
+.button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #0056b3;
+}
+
+.label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+}
+
+.text-area {
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #aaaaaa;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5;
+    -fx-padding: 8px;
+}
+
+.text-area .content {
+    -fx-background-color: #333333;
+}
+
+.text-area:focused {
+    -fx-border-color: #007bff;
+}
+
+.combo-box {
+    -fx-background-color: #333333;
+    -fx-mark-color: #ffffff; /* Cor da seta */
+    -fx-border-color: #555555;
+    -fx-border-radius: 5;
+    -fx-padding: 5px;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #ffffff;
+    -fx-background

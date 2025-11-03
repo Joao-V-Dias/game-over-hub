@@ -1,5 +1,6 @@
 package com.gameover.hub.view;
 
+import com.gameover.hub.Launcher;
 import com.gameover.hub.model.LoginResult;
 import com.gameover.hub.model.Usuario;
 import com.gameover.hub.service.UsuarioService;
@@ -11,10 +12,12 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.util.Objects;
 
 @Slf4j
 public class LoginController {
@@ -44,6 +47,7 @@ public class LoginController {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/gameover/hub/fxml/TelaHome.fxml"));
 					Parent root = loader.load();
 					Stage stage = new Stage();
+					stage.getIcons().add(new Image(Objects.requireNonNull(Launcher.class.getResourceAsStream("/com/gameover/hub/img/logo.png"))));
 					stage.setScene(new javafx.scene.Scene(root));
 					stage.show();
 
