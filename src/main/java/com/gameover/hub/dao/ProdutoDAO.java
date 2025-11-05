@@ -14,7 +14,7 @@ public class ProdutoDAO{
     Connection conn;
 
     public ProdutoDAO() {
-        this.conn = new Conexao().conectar();
+        this.conn = Conexao.getInstance();
     }
 
 	private static final String CRIAR_PRODUTO =

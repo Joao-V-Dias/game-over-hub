@@ -15,7 +15,7 @@ public class UsuarioDAO{
     Connection conn;
 
     public UsuarioDAO() {
-        conn = new Conexao().conectar();
+        conn = Conexao.getInstance();
     }
 
     private static final String CONSULTAR_USUARIO_NOME = "SELECT * FROM usuario WHERE email = ?";

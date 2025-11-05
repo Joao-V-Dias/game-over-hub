@@ -9,8 +9,9 @@ import java.sql.SQLException;
 
 @Slf4j
 public class Conexao{
+	private static Connection uniqueInstance;
 
-    public Connection conectar() {
+	private static Connection createInstance() {
         Dotenv dotenv = Dotenv.load();
         String url = dotenv.get("DB_URL");
         String usuario = dotenv.get("DB_USER");
@@ -23,4 +24,11 @@ public class Conexao{
 			throw new RuntimeException("Não foi possível estabelecer a conexão com o banco de dados", e);
         }
     }
+
+	public static Connection getInstance(){
+		if(uniqueInstance == null){
+			uniqueInstance = createInstance();
+		}
+		return uniqueInstance;
+	}
 }
