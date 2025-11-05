@@ -28,7 +28,7 @@
             <TextField fx:id="txtNomeCliente" layoutX="137.0" layoutY="48.0" prefHeight="25.0" prefWidth="434.0" styleClass="input" />
 
             <Label layoutX="14.0" layoutY="80.0" styleClass="label-modal" text="Produtos:" AnchorPane.leftAnchor="14.0" />
-            <TableView fx:id="tabelaProdutos" layoutX="16.0" layoutY="105.0" prefHeight="193.0" prefWidth="1129.0" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="104.0">
+            <TableView fx:id="tabelaProdutos" layoutX="16.0" layoutY="105.0" prefHeight="147.0" prefWidth="1134.0" AnchorPane.bottomAnchor="361.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="104.0">
               <columns>
                 <TableColumn prefWidth="300.0" text="Produto" />
                 <TableColumn prefWidth="90.0" text="Quantidade" />
@@ -58,6 +58,11 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <Label layoutX="14.0" layoutY="262.0" text="Produto: " />
+            <TextField layoutX="69.0" layoutY="260.0" prefHeight="25.0" prefWidth="320.0" />
+            <TextField layoutX="457.0" layoutY="262.0" />
+            <Label layoutX="418.0" layoutY="264.0" text="Qtd: " />
+            <Button layoutX="1050.0" layoutY="255.0" mnemonicParsing="false" text="Adicionar" />
 
          </children>
       </AnchorPane>
@@ -75,12 +80,12 @@
       </AnchorPane>
       <HBox alignment="CENTER" prefHeight="64.0" prefWidth="822.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btnComprar" mnemonicParsing="false" onAction="#handleComprar" prefHeight="33.0" prefWidth="593.0" styleClass="btn-topo" text="Comprar Produto">
+            <Button fx:id="btnComprar" mnemonicParsing="false" onAction="#handleComprar" prefHeight="33.0" prefWidth="280.0" styleClass="btn-topo" text="Comprar Produto">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnServico" mnemonicParsing="false" onAction="#handleServico" prefHeight="0.0" prefWidth="597.0" styleClass="btn-topo" text="Abrir Ordem de Serviço">
+            <Button fx:id="btnServico" mnemonicParsing="false" onAction="#handleServico" prefHeight="40.0" prefWidth="280.0" styleClass="btn-topo" text="Abrir Ordem de Serviço">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

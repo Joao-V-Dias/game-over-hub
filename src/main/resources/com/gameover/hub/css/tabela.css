@@ -1,0 +1,50 @@
+.table-view {
+    -fx-background-color: #30333B;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #25272D;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #424650;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #FFFFFF;
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell {
+    -fx-background-color: #30333B;
+    -fx-cell-size: 35px;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #0078D7;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #FFFFFF;
+}
+
+.table-view .scroll-bar:vertical .increment-button,
+.table-view .scroll-bar:vertical .decrement-button {
+    -fx-background-color: #424650;
+    -fx-opacity: 0;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #0078D7;
+    -fx-background-radius: 5;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: #424650;
+    -fx-background-radius: 5;
+}
