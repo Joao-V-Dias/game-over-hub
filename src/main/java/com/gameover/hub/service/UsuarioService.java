@@ -6,7 +6,7 @@ import com.gameover.hub.model.Usuario;
 
 public class UsuarioService{
 
-    UsuarioDAO uDAO;
+    private final UsuarioDAO uDAO;
 
     public UsuarioService() {
         uDAO = new UsuarioDAO();

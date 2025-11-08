@@ -12,7 +12,7 @@ import java.sql.SQLException;
 @Slf4j
 public class UsuarioDAO{
 
-    Connection conn;
+    private final Connection conn;
 
     public UsuarioDAO() {
         conn = Conexao.getInstance();

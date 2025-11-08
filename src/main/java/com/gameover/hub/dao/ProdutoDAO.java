@@ -11,7 +11,7 @@ import java.util.List;
 @Slf4j
 public class ProdutoDAO{
 
-    Connection conn;
+    private final Connection conn;
 
     public ProdutoDAO() {
         this.conn = Conexao.getInstance();

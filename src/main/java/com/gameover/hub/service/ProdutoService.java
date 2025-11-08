@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ProdutoService{
 
-    ProdutoDAO pDAO;
+    private final ProdutoDAO pDAO;
 
     public ProdutoService() {
         this.pDAO = new ProdutoDAO();

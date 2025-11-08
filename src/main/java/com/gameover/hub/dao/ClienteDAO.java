@@ -12,7 +12,7 @@ import java.util.List;
 
 @Slf4j
 public class ClienteDAO{
-	Connection conn;
+	private final Connection conn;
 
     public ClienteDAO() {
         this.conn = Conexao.getInstance();
