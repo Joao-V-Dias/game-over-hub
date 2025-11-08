@@ -25,7 +25,7 @@ public class HomeController {
     private Button btnEstoque;
 
     @FXML
-    private Button btnFinanceiro;
+	private Button btnCliente;
 
     @FXML
     private Button btnTecnico;
