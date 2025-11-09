@@ -44,8 +44,8 @@ public class HomeController {
     }
 
     @FXML
-    void abrirTelaFinanceiro(ActionEvent event) {
-		carregarTela("/com/gameover/hub/fxml/TelaFinanceiro.fxml");
+    void abrirTelaCliente(ActionEvent event) {
+		carregarTela("/com/gameover/hub/fxml/TelaCliente.fxml");
     }
 
     @FXML

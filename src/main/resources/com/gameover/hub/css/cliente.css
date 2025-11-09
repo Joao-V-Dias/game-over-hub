@@ -1,0 +1,66 @@
+.root {
+    -fx-background-color: #25272d;
+}
+
+.label {
+    -fx-text-fill: #edeae1;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Regular";
+}
+
+.text-field {
+    -fx-background-color: #33363c;
+    -fx-text-fill: #edeae1;
+    -fx-prompt-text-fill: #a0a0a0;
+    -fx-border-color: #4f535a;
+    -fx-border-radius: 4;
+    -fx-background-insets: 0;
+    -fx-padding: 8px;
+    -fx-font-family: "Roboto Regular";
+}
+
+.text-field:focused {
+    -fx-border-color: #007bff;
+    -fx-background-color: #3a3e44;
+}
+
+.button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Regular";
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 4;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #0056b3;
+}
+
+.combo-box {
+    -fx-background-color: #33363c;
+    -fx-border-color: #4f535a;
+    -fx-border-radius: 4;
+    -fx-padding: 5px;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #edeae1;
+    -fx-background-color: #33363c;
+    -fx-padding: 8px;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #4f535a;
+}
+
+.combo-box .list-cell:selected {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #33363c;
+    -fx-border-color: #4f535a;
+}
