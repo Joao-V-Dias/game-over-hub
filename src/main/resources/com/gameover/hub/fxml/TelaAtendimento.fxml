@@ -24,26 +24,20 @@
                </font>
             </Label>
             
-            <Label layoutX="14.0" layoutY="50.0" styleClass="label-modal" text="Nome do Cliente:" AnchorPane.leftAnchor="14.0" />
-            <TextField fx:id="txtNomeCliente" layoutX="137.0" layoutY="48.0" prefHeight="25.0" prefWidth="434.0" styleClass="input" />
+            <Label layoutX="14.0" layoutY="50.0" styleClass="label-modal" text="Cliente" AnchorPane.leftAnchor="14.0" />
+            <TextField fx:id="txtNomeCliente" layoutX="71.0" layoutY="42.0" prefHeight="37.0" prefWidth="250.0" styleClass="input" />
 
-            <Label layoutX="14.0" layoutY="80.0" styleClass="label-modal" text="Produtos:" AnchorPane.leftAnchor="14.0" />
-            <TableView fx:id="tabelaProdutos" layoutX="16.0" layoutY="105.0" prefHeight="147.0" prefWidth="1134.0" AnchorPane.bottomAnchor="361.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="104.0">
+            <Label layoutX="13.0" layoutY="139.0" styleClass="label-modal" text="Produtos:" AnchorPane.leftAnchor="13.0" />
+            <TableView fx:id="tabelaProdutos" layoutX="14.0" layoutY="169.0" prefHeight="329.0" prefWidth="1134.0" stylesheets="@../css/tabela.css" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="169.0">
               <columns>
                 <TableColumn prefWidth="300.0" text="Produto" />
                 <TableColumn prefWidth="90.0" text="Quantidade" />
                 <TableColumn prefWidth="140.0" text="Valor Unitário (R$)" />
                 <TableColumn prefWidth="140.0" text="Subtotal (R$)" />
               </columns>
-            </TableView>
-
-            <Label layoutX="15.0" layoutY="306.0" styleClass="label-modal" text="Equipamentos para Troca (Trade-in):" AnchorPane.bottomAnchor="289.0" AnchorPane.leftAnchor="14.0" />
-            <TableView fx:id="tabelaTrocas" layoutX="19.0" layoutY="326.0" prefHeight="185.0" prefWidth="1127.0" AnchorPane.bottomAnchor="103.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
-              <columns>
-                <TableColumn prefWidth="350.0" text="Equipamento" />
-                <TableColumn prefWidth="180.0" text="Modelo" />
-                <TableColumn prefWidth="140.0" text="Crédito (R$)" />
-              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
 
             <Label layoutX="16.0" layoutY="530.0" styleClass="label-modal" text="Garantia:" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="14.0" />
@@ -58,11 +52,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Label layoutX="14.0" layoutY="262.0" text="Produto: " />
-            <TextField layoutX="69.0" layoutY="260.0" prefHeight="25.0" prefWidth="320.0" />
-            <TextField layoutX="457.0" layoutY="262.0" />
-            <Label layoutX="418.0" layoutY="264.0" text="Qtd: " />
-            <Button layoutX="1050.0" layoutY="255.0" mnemonicParsing="false" text="Adicionar" />
+            <Label layoutX="14.0" layoutY="101.0" text="Produto: " />
+            <TextField layoutX="69.0" layoutY="99.0" prefHeight="25.0" prefWidth="320.0" />
+            <TextField layoutX="796.0" layoutY="99.0" />
+            <Label layoutX="757.0" layoutY="101.0" text="Qtd: " />
+            <Button layoutX="1049.0" layoutY="91.0" mnemonicParsing="false" text="Adicionar" AnchorPane.rightAnchor="14.0" />
+            <ComboBox layoutX="333.0" layoutY="42.0" prefHeight="37.0" prefWidth="305.0" />
+            <ComboBox layoutX="417.0" layoutY="93.0" prefHeight="37.0" prefWidth="305.0" />
 
          </children>
       </AnchorPane>
@@ -84,6 +80,9 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
             </Button>
             <Button fx:id="btnServico" mnemonicParsing="false" onAction="#handleServico" prefHeight="40.0" prefWidth="280.0" styleClass="btn-topo" text="Abrir Ordem de Serviço">
                <opaqueInsets>

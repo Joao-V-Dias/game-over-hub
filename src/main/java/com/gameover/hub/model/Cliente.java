@@ -1,19 +1,24 @@
 package com.gameover.hub.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class Cliente{
-	private int id;
-	private String nome;
-	private String telefone;
-	private String endereco;
-	private String cpf;
-	private String email;
+public class Cliente {
+
+    private Integer id;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String telefone;
+    private String endereco;
+
+    public Cliente(String nome, String cpf, String email, String telefone, String endereco) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
 }

@@ -19,22 +19,22 @@ public class ClienteDAO{
     }
 
 	private static final String CRIAR_CLIENTE =
-		"INSERT INTO clientes (nome, telefone, endereco, cpf, email) VALUES (?, ?, ?, ?, ?)";
+		"INSERT INTO cliente (nome, telefone, endereco, cpf, email) VALUES (?, ?, ?, ?, ?)";
 
 	private static final String BUSCAR_TODOS_CLIENTES =
-		"SELECT id, nome, telefone, endereco, cpf, email FROM clientes";
+		"SELECT id, nome, telefone, endereco, cpf, email FROM cliente";
 
 	private static final String BUSCAR_CLIENTE_POR_ID =
-		"SELECT id, nome, telefone, endereco, cpf, email FROM clientes WHERE id = ?";
+		"SELECT id, nome, telefone, endereco, cpf, email FROM cliente WHERE id = ?";
 
 	private static final String EDITAR_CLIENTE =
-		"UPDATE clientes SET nome = ?, telefone = ?, endereco = ?, cpf = ?, email = ? WHERE id = ?";
+		"UPDATE cliente SET nome = ?, telefone = ?, endereco = ?, cpf = ?, email = ? WHERE id = ?";
 
 	private static final String DELETAR_CLIENTE =
-		"DELETE FROM clientes WHERE id = ?";
+		"DELETE FROM cliente WHERE id = ?";
 
-	private static final String BUSCAR_CLIENTE_POR_CPF =
-		"SELECT id, nome, telefone, endereco, cpf, email FROM clientes WHERE cpf = ?";
+	private static final String BUSCAR_CLIENTE_POR_NOME =
+		"SELECT id, nome, telefone, endereco, cpf, email FROM cliente WHERE nome ILIKE ?";
 
 	public Cliente salvar(Cliente c){
 		try {
@@ -86,11 +86,11 @@ public class ClienteDAO{
         return c;
     }
 
-	public Cliente getClientePorCpf(String cpf) {
+	public Cliente getClientePorNome(String nome) {
         Cliente c = null;
         try {
-            java.sql.PreparedStatement stmt = conn.prepareStatement(BUSCAR_CLIENTE_POR_CPF);
-            stmt.setString(1, cpf);
+            java.sql.PreparedStatement stmt = conn.prepareStatement(BUSCAR_CLIENTE_POR_NOME);
+            stmt.setString(1, "%"+nome+"%");
             java.sql.ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 c = mapearCliente(rs);

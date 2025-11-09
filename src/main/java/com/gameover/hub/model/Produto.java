@@ -1,12 +1,14 @@
 package com.gameover.hub.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class Produto{
 
     private int id;
@@ -16,9 +18,6 @@ public class Produto{
     private int quantidade;
 	private String gtin;
 	private int estoqueMinimo;
-
-    public Produto() {
-    }
 
 	public Produto(int estoqueMinimo, String gtin, int quantidade, String categoria, BigDecimal preco, String nome){
 		this.estoqueMinimo = estoqueMinimo;

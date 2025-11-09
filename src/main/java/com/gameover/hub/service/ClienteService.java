@@ -24,8 +24,8 @@ public class ClienteService{
 		return cDAO.getCliente(id);
 	}
 
-	public Cliente getClientePorCpf(String cpf) {
-		return cDAO.getClientePorCpf(cpf);
+	public Cliente getClientePorNome(String nome) {
+		return cDAO.getClientePorNome(nome);
 	}
 
 	public Cliente editar(Cliente c) {
