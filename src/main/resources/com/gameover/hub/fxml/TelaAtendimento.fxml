@@ -7,12 +7,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="701.0" prefWidth="1186.0" styleClass="atendimento-background" stylesheets="@../css/atendimento.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.AtendimentoController">
+<AnchorPane prefHeight="701.0" prefWidth="1186.0" stylesheets="@../css/atendimento.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gameover.hub.view.AtendimentoController">
    <children>
 
       <!-- Modal de Compra -->
@@ -23,17 +25,28 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            
+
             <Label layoutX="14.0" layoutY="50.0" styleClass="label-modal" text="Cliente" AnchorPane.leftAnchor="14.0" />
-            <TextField fx:id="txtNomeCliente" layoutX="71.0" layoutY="42.0" prefHeight="37.0" prefWidth="250.0" styleClass="input" />
+            <TextField fx:id="txtNomeCliente" layoutX="71.0" layoutY="42.0" onKeyTyped="#buscarCliente" prefHeight="37.0" prefWidth="250.0" styleClass="input" />
 
             <Label layoutX="13.0" layoutY="139.0" styleClass="label-modal" text="Produtos:" AnchorPane.leftAnchor="13.0" />
             <TableView fx:id="tabelaProdutos" layoutX="14.0" layoutY="169.0" prefHeight="329.0" prefWidth="1134.0" stylesheets="@../css/tabela.css" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="169.0">
               <columns>
-                <TableColumn prefWidth="300.0" text="Produto" />
-                <TableColumn prefWidth="90.0" text="Quantidade" />
-                <TableColumn prefWidth="140.0" text="Valor Unitário (R$)" />
-                <TableColumn prefWidth="140.0" text="Subtotal (R$)" />
+                <TableColumn prefWidth="300.0" text="Produto">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="produto" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="90.0" text="Quantidade">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="quantidade" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="140.0" text="Valor Unitário (R$)">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="precoUnitario" />
+                    </cellValueFactory>
+                </TableColumn>
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -41,36 +54,42 @@
             </TableView>
 
             <Label layoutX="16.0" layoutY="530.0" styleClass="label-modal" text="Garantia:" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="14.0" />
-            <ComboBox fx:id="comboGarantia" layoutX="74.0" layoutY="526.0" prefWidth="150.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="74.0" />
+            <ComboBox fx:id="cmvGarantia" layoutX="74.0" layoutY="526.0" prefWidth="150.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="74.0" />
 
             <Label fx:id="lblTotal" layoutX="450.0" layoutY="390.0" styleClass="sum" text="Total: R$ 0,00" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="14.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="560.0" layoutY="386.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="270.0" styleClass="btn-finaliza" text="Finalizar Compra" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="btnFinalizar" layoutX="560.0" layoutY="386.0" mnemonicParsing="false" onAction="#finalizarCompra" prefHeight="40.0" prefWidth="270.0" styleClass="btn-finaliza" text="Finalizar Compra" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="14.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Label layoutX="14.0" layoutY="101.0" text="Produto: " />
-            <TextField layoutX="69.0" layoutY="99.0" prefHeight="25.0" prefWidth="320.0" />
-            <TextField layoutX="796.0" layoutY="99.0" />
+            <TextField fx:id="txtProduto" layoutX="69.0" layoutY="99.0" onKeyTyped="#buscarProduto" prefHeight="25.0" prefWidth="320.0" />
+            <TextField fx:id="txtQtd" layoutX="796.0" layoutY="99.0" />
             <Label layoutX="757.0" layoutY="101.0" text="Qtd: " />
-            <Button layoutX="1049.0" layoutY="91.0" mnemonicParsing="false" text="Adicionar" AnchorPane.rightAnchor="14.0" />
-            <ComboBox layoutX="333.0" layoutY="42.0" prefHeight="37.0" prefWidth="305.0" />
-            <ComboBox layoutX="417.0" layoutY="93.0" prefHeight="37.0" prefWidth="305.0" />
+            <Button fx:id="btnAdicionar" layoutX="1049.0" layoutY="91.0" mnemonicParsing="false" onAction="#adicionarProduto" text="Adicionar" AnchorPane.rightAnchor="14.0" />
+            <ComboBox fx:id="cmbCliente" layoutX="333.0" layoutY="42.0" prefHeight="37.0" prefWidth="305.0" />
+            <ComboBox fx:id="cmbProduto" layoutX="417.0" layoutY="93.0" prefHeight="37.0" prefWidth="305.0" />
 
          </children>
       </AnchorPane>
 
       <!-- Modal de Ordem de Serviço -->
-      <AnchorPane fx:id="modalServico" layoutX="50.0" layoutY="150.0" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #cccccc;" visible="false">
+      <AnchorPane fx:id="modalServico" layoutX="37.0" layoutY="73.0" prefHeight="614.0" prefWidth="1158.0" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="73.0">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" text="Ordem de Serviço">
+            <Label layoutX="14.0" layoutY="14.0" text="Ordem de Serviço" AnchorPane.leftAnchor="14.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+            <Label layoutX="8.0" layoutY="44.0" prefHeight="27.0" prefWidth="52.0" text="Cliente" AnchorPane.leftAnchor="14.0" />
+            <TextField layoutX="70.0" layoutY="44.0" prefHeight="27.0" prefWidth="314.0" />
+            <ComboBox layoutX="406.0" layoutY="39.0" prefHeight="37.0" prefWidth="302.0" />
+            <TextArea layoutX="16.0" layoutY="117.0" prefHeight="427.0" prefWidth="1128.0" text="Relato:&#10;&#10;Equipamento:" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="116.0" />
+            <Button layoutX="1067.0" layoutY="560.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="221.0" text="Salvar" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+            <Label layoutX="16.0" layoutY="87.0" text="Relato do cliente:" AnchorPane.leftAnchor="14.0" />
             <!-- Adicione aqui os campos para a O.S. -->
          </children>
       </AnchorPane>

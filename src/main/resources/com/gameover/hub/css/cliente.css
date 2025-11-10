@@ -56,7 +56,7 @@
 }
 
 .combo-box .list-cell:selected {
-    -fx-background-color: #007bff;
+    -fx-background-color: #4f535a; /* Cor de seleção alterada */
     -fx-text-fill: white;
 }
 

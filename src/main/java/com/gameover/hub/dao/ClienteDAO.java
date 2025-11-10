@@ -4,9 +4,7 @@ import com.gameover.hub.model.Cliente;
 import com.gameover.hub.util.Conexao;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,20 +36,20 @@ public class ClienteDAO{
 
 	public Cliente salvar(Cliente c){
 		try {
-            java.sql.PreparedStatement stmt = conn.prepareStatement(CRIAR_CLIENTE, java.sql.Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = conn.prepareStatement(CRIAR_CLIENTE, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getTelefone());
 			stmt.setString(3, c.getEndereco());
 			stmt.setString(4, c.getCpf());
 			stmt.setString(5, c.getEmail());
             stmt.executeUpdate();
-            java.sql.ResultSet rs = stmt.getGeneratedKeys();
+            ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next()) {
                 c.setId(rs.getInt(1));
             }
             rs.close();
             stmt.close();
-        } catch (java.sql.SQLException e) {
+        } catch (SQLException e) {
             log.error("Falha ao salvar cliente: ", e);
         }
         return c;
@@ -60,12 +58,12 @@ public class ClienteDAO{
 	public List<Cliente> getClientes() {
         List<Cliente> lstCliente = new ArrayList<>();
         try {
-            java.sql.PreparedStatement stmt = conn.prepareStatement(BUSCAR_TODOS_CLIENTES);
-            java.sql.ResultSet rs = stmt.executeQuery();
+            PreparedStatement stmt = conn.prepareStatement(BUSCAR_TODOS_CLIENTES);
+            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 lstCliente.add(mapearCliente(rs));
             }
-        } catch (java.sql.SQLException e) {
+        } catch (SQLException e) {
             log.error("Falha ao buscar clientes: ", e);
         }
         return lstCliente;
@@ -74,36 +72,36 @@ public class ClienteDAO{
     public Cliente getCliente(int id) {
         Cliente c = null;
         try {
-            java.sql.PreparedStatement stmt = conn.prepareStatement(BUSCAR_CLIENTE_POR_ID);
+            PreparedStatement stmt = conn.prepareStatement(BUSCAR_CLIENTE_POR_ID);
             stmt.setInt(1, id);
-            java.sql.ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 c = mapearCliente(rs);
             }
-        } catch (java.sql.SQLException e) {
+        } catch (SQLException e) {
             log.error("Falha ao buscar cliente: ", e);
         }
         return c;
     }
 
-	public Cliente getClientePorNome(String nome) {
-        Cliente c = null;
+	public List<Cliente> getClientePorNome(String nome) {
+        List<Cliente> clientes = new ArrayList<>();
         try {
-            java.sql.PreparedStatement stmt = conn.prepareStatement(BUSCAR_CLIENTE_POR_NOME);
-            stmt.setString(1, "%"+nome+"%");
-            java.sql.ResultSet rs = stmt.executeQuery();
+            PreparedStatement stmt = conn.prepareStatement(BUSCAR_CLIENTE_POR_NOME);
+            stmt.setString(1, "%" + nome + "%");
+            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                c = mapearCliente(rs);
+                clientes.add(mapearCliente(rs));
             }
-        } catch (java.sql.SQLException e) {
-            log.error("Falha ao buscar cliente por CPF: ", e);
+        } catch (SQLException e) {
+            log.error("Falha ao buscar cliente por nome: {}", nome, e);
         }
-        return c;
+        return clientes;
     }
 
     public Cliente editar(Cliente c) {
         try {
-            java.sql.PreparedStatement stmt = conn.prepareStatement(EDITAR_CLIENTE);
+            PreparedStatement stmt = conn.prepareStatement(EDITAR_CLIENTE);
 			stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getTelefone());
 			stmt.setString(3, c.getEndereco());
@@ -113,7 +111,7 @@ public class ClienteDAO{
             stmt.executeUpdate();
             stmt.close();
             return c;
-        } catch (java.sql.SQLException e) {
+        } catch (SQLException e) {
             log.error("Falha ao editar cliente: ", e);
         }
         return null;
@@ -121,11 +119,11 @@ public class ClienteDAO{
 
 	public void deletar(int id) {
         try {
-            java.sql.PreparedStatement stmt = conn.prepareStatement(DELETAR_CLIENTE);
+            PreparedStatement stmt = conn.prepareStatement(DELETAR_CLIENTE);
             stmt.setInt(1, id);
             stmt.executeUpdate();
             stmt.close();
-        } catch (java.sql.SQLException e) {
+        } catch (SQLException e) {
             log.error("Falha ao deletar cliente: ", e);
         }
     }

@@ -1,0 +1,76 @@
+@startuml
+' Define a ordem dos participantes
+participant "Usuário" as User
+participant "TelaAtendimento" as View
+participant "AtendimentoController" as Controller
+participant "PedidoService" as PedidoService
+participant "PedidoDAO" as PedidoDAO
+participant "ItensPedidoDAO" as ItensPedidoDAO
+participant "ProdutoDAO" as ProdutoDAO
+database "Banco de Dados" as DB
+
+' Início da sequência
+User -> View: Clica no botão "Finalizar Compra"
+
+activate View
+View -> Controller: handleFinalizarCompra()
+deactivate View
+
+activate Controller
+Controller -> Controller: Pega Cliente e Lista de Produtos da UI
+note right of Controller
+  Coleta o cliente selecionado e os
+  produtos/quantidades da tabela.
+end note
+
+' O Controller delega a lógica de negócio para um Service
+Controller -> PedidoService: registrarNovaVenda(cliente, itens)
+
+activate PedidoService
+note over PedidoService
+  **Início da Transação no Banco de Dados**
+  (Todas as operações a seguir devem ser atômicas)
+end note
+
+' 1. Salvar o Pedido principal
+PedidoService -> PedidoDAO: salvar(novoPedido)
+activate PedidoDAO
+PedidoDAO -> DB: INSERT INTO pedido (cliente_id, data, total) VALUES (...)
+activate DB
+DB --> PedidoDAO: Retorna pedido_id gerado
+deactivate DB
+PedidoDAO --> PedidoService: Retorna Pedido com ID
+deactivate PedidoDAO
+
+' 2. Salvar cada item do pedido e atualizar o estoque
+loop para cada item na lista de venda
+    PedidoService -> ItensPedidoDAO: salvar(itemDoPedido)
+    activate ItensPedidoDAO
+    ItensPedidoDAO -> DB: INSERT INTO itens_pedido (pedido_id, produto_id, qtd, preco) VALUES (...)
+    deactivate ItensPedidoDAO
+
+    PedidoService -> ProdutoDAO: atualizarEstoque(produto_id, -qtd_vendida)
+    activate ProdutoDAO
+    ProdutoDAO -> DB: UPDATE produto SET quantidade = quantidade - ? WHERE id = ?
+    deactivate ProdutoDAO
+end
+
+note over PedidoService
+  **Fim da Transação (Commit)**
+  Se qualquer passo falhar, a transação
+  inteira seria revertida (Rollback).
+end note
+
+PedidoService --> Controller: Retorna Pedido completo
+deactivate PedidoService
+
+' Controller atualiza a UI
+Controller -> View: Limpa formulário da venda
+activate View
+Controller -> View: Exibe mensagem de sucesso
+View --> User: "Venda registrada com sucesso!"
+deactivate View
+
+deactivate Controller
+
+@enduml

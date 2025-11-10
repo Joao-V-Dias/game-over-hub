@@ -24,7 +24,7 @@ public class ClienteService{
 		return cDAO.getCliente(id);
 	}
 
-	public Cliente getClientePorNome(String nome) {
+	public List<Cliente> getClientePorNome(String nome) {
 		return cDAO.getClientePorNome(nome);
 	}
 

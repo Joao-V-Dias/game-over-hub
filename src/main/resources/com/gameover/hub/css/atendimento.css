@@ -1,22 +1,43 @@
-.input-field {
-    -fx-background-color: #333333;
-    -fx-text-fill: #ffffff;
-    -fx-prompt-text-fill: #aaaaaa;
-    -fx-border-color: #555555;
-    -fx-border-radius: 5;
-    -fx-padding: 8px;
+/* Estilos para a tela de Atendimento, consistentes com o resto do sistema */
+
+.root {
+    -fx-background-color: #25272d;
 }
 
-.input-field:focused {
+.label {
+    -fx-text-fill: #edeae1;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Regular";
+}
+
+.text-field, .text-area {
+    -fx-background-color: #33363c;
+    -fx-text-fill: #edeae1;
+    -fx-prompt-text-fill: #a0a0a0;
+    -fx-border-color: #4f535a;
+    -fx-border-radius: 4;
+    -fx-background-insets: 0;
+    -fx-padding: 8px;
+    -fx-font-family: "Roboto Regular";
+}
+
+.text-field:focused, .text-area:focused {
     -fx-border-color: #007bff;
+    -fx-background-color: #3a3e44;
+}
+
+/* Garante que o conteúdo da TextArea também tenha o fundo correto */
+.text-area .content {
+    -fx-background-color: #33363c;
 }
 
 .button {
     -fx-background-color: #007bff;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
+    -fx-font-family: "Roboto Regular";
     -fx-padding: 10px 20px;
-    -fx-border-radius: 5;
+    -fx-border-radius: 4;
     -fx-cursor: hand;
 }
 
@@ -24,36 +45,38 @@
     -fx-background-color: #0056b3;
 }
 
-.label {
-    -fx-text-fill: #ffffff;
-    -fx-font-size: 14px;
-}
-
-.text-area {
-    -fx-background-color: #333333;
-    -fx-text-fill: #ffffff;
-    -fx-prompt-text-fill: #aaaaaa;
-    -fx-border-color: #555555;
-    -fx-border-radius: 5;
-    -fx-padding: 8px;
-}
-
-.text-area .content {
-    -fx-background-color: #333333;
-}
-
-.text-area:focused {
-    -fx-border-color: #007bff;
-}
-
 .combo-box {
-    -fx-background-color: #333333;
-    -fx-mark-color: #ffffff; /* Cor da seta */
-    -fx-border-color: #555555;
-    -fx-border-radius: 5;
+    -fx-background-color: #33363c;
+    -fx-border-color: #4f535a;
+    -fx-border-radius: 4;
     -fx-padding: 5px;
 }
 
 .combo-box .list-cell {
-    -fx-text-fill: #ffffff;
-    -fx-background
+    -fx-text-fill: #edeae1;
+    -fx-background-color: #33363c;
+    -fx-padding: 8px;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #4f535a;
+}
+
+.combo-box .list-cell:selected {
+    -fx-background-color: #4f535a; /* Cor de seleção alterada */
+    -fx-text-fill: white;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #33363c;
+    -fx-border-color: #4f535a;
+}
+
+/* Estilo específico para os painéis modais */
+#modalCompra, #modalServico {
+    -fx-background-color: #2c2f36;
+    -fx-border-color: #4f535a;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}

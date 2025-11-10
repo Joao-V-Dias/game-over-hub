@@ -3,6 +3,8 @@ package com.gameover.hub.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Optional;
+
 @Data
 @NoArgsConstructor
 public class Cliente {
@@ -21,4 +23,10 @@ public class Cliente {
         this.telefone = telefone;
         this.endereco = endereco;
     }
+
+	@Override
+	public String toString(){
+		return this.nome;
+	}
+
 }

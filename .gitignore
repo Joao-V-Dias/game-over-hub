@@ -5,6 +5,8 @@
 *.pem
 *.ppk
 
+diagram/
+
 # Maven build output
 target/
 pom.xml.tag
